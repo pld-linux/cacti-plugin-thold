@@ -11,7 +11,7 @@ Group:		Applications/WWW
 Source0:	http://download.cactiusers.org/downloads/%{namesrc}.tar.gz
 # Source0-md5:	709983a8924393dacb45d48c7727f963
 URL:		http://www.cactiusers.org/
-#BuildRequires:	rpm-perlprov
+BuildRequires:	rpm-perlprov
 Requires:	cacti
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -24,12 +24,12 @@ to a plugin. Much easier to install and maintain. Requires that you
 have the Plugin Architecture installed.
 
 %description -l pl
-Wtyczka do Cacti.
+Wtyczka do Cacti - modu³ Threshold (który napisa³ Aurelio DeSimone)
+przekszta³cony do wtyczki, dziêki czemu jest du¿o ³atwiejszy do
+instalacji i utrzymania. Wymaga zainstalowanej architektury wtyczek.
 
 %prep
 %setup -q -n %{namesrc}
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
