@@ -3,13 +3,13 @@
 Summary:	Plugin for Cacti - Thold
 Summary(pl):	Wtyczka do Cacti - Thold
 Name:		cacti-plugin-thold
-Version:	0.2.7
+Version:	0.2.9
 Release:	1
-License:	GPL
+License:	GPL v2.1
 Group:		Applications/WWW
 #!!!!problem with version
 Source0:	http://download.cactiusers.org/downloads/%{namesrc}.tar.gz
-# Source0-md5:	709983a8924393dacb45d48c7727f963
+# Source0-md5:	b8947ca16f6f0990c77b4e159d53acb7
 URL:		http://www.cactiusers.org/
 BuildRequires:	rpm-perlprov
 Requires:	cacti
@@ -27,6 +27,9 @@ have the Plugin Architecture installed.
 Wtyczka do Cacti - modu³ Threshold (który napisa³ Aurelio DeSimone)
 przekszta³cony do wtyczki, dziêki czemu jest du¿o ³atwiejszy do
 instalacji i utrzymania. Wymaga zainstalowanej architektury wtyczek.
+Umozliwia monitoring parametrów i alarmowanie w przypadku 
+przekroczenia zadanych wartosci lub niekorzystnych zmian w przebiegu
+monitorowanych parametrów
 
 %prep
 %setup -q -n %{namesrc}
@@ -41,5 +44,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES 
+%doc README
 %{webcactipluginroot}
