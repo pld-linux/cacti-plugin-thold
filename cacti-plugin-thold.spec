@@ -27,9 +27,9 @@ have the Plugin Architecture installed.
 Wtyczka do Cacti - modu³ Threshold (który napisa³ Aurelio DeSimone)
 przekszta³cony do wtyczki, dziêki czemu jest du¿o ³atwiejszy do
 instalacji i utrzymania. Wymaga zainstalowanej architektury wtyczek.
-Umozliwia monitoring parametrów i alarmowanie w przypadku 
-przekroczenia zadanych wartosci lub niekorzystnych zmian w przebiegu
-monitorowanych parametrów
+Umo¿liwia monitoring parametrów i alarmowanie w przypadku
+przekroczenia zadanych warto¶ci lub niekorzystnych zmian w przebiegu
+monitorowanych parametrów.
 
 %prep
 %setup -q -n %{namesrc}
