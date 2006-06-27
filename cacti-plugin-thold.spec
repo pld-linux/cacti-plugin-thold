@@ -9,7 +9,7 @@ License:	GPL v2.1
 Group:		Applications/WWW
 #!!!!problem with version
 Source0:	http://download.cactiusers.org/downloads/%{namesrc}.tar.gz
-# Source0-md5:	87c9b0bd79968bc3a39e071d9a0e4365
+# Source0-md5:	3cb37cb33a45ac7daf5c35f3238e2c71
 URL:		http://www.cactiusers.org/
 BuildRequires:	rpm-perlprov
 Requires:	cacti
