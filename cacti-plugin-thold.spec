@@ -1,7 +1,7 @@
 %define		namesrc	thold
 %include	/usr/lib/rpm/macros.perl
 Summary:	Plugin for Cacti - Thold
-Summary(pl.UTF-8):   Wtyczka do Cacti - Thold
+Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
 Name:		cacti-plugin-thold
 Version:	0.3.2
 Release:	1
