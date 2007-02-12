@@ -1,7 +1,7 @@
 %define		namesrc	thold
 %include	/usr/lib/rpm/macros.perl
 Summary:	Plugin for Cacti - Thold
-Summary(pl):	Wtyczka do Cacti - Thold
+Summary(pl.UTF-8):   Wtyczka do Cacti - Thold
 Name:		cacti-plugin-thold
 Version:	0.3.2
 Release:	1
@@ -22,13 +22,13 @@ Plugin for Cacti - the Threshold Module (by Aurelio DeSimone) converted
 to a plugin. Much easier to install and maintain. Requires that you
 have the Plugin Architecture installed.
 
-%description -l pl
-Wtyczka do Cacti - modu≥ Threshold (ktÛry napisa≥ Aurelio DeSimone)
-przekszta≥cony do wtyczki, dziÍki czemu jest duøo ≥atwiejszy do
+%description -l pl.UTF-8
+Wtyczka do Cacti - modu≈Ç Threshold (kt√≥ry napisa≈Ç Aurelio DeSimone)
+przekszta≈Çcony do wtyczki, dziƒôki czemu jest du≈ºo ≈Çatwiejszy do
 instalacji i utrzymania. Wymaga zainstalowanej architektury wtyczek.
-Umoøliwia monitoring parametrÛw i alarmowanie w przypadku
-przekroczenia zadanych warto∂ci lub niekorzystnych zmian w przebiegu
-monitorowanych parametrÛw.
+Umo≈ºliwia monitoring parametr√≥w i alarmowanie w przypadku
+przekroczenia zadanych warto≈õci lub niekorzystnych zmian w przebiegu
+monitorowanych parametr√≥w.
 
 %prep
 %setup -q -n %{namesrc}
