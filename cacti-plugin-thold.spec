@@ -19,9 +19,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		webcactipluginroot /usr/share/cacti/plugins/%{namesrc}
 
 %description
-Plugin for Cacti - the Threshold Module (by Aurelio DeSimone) converted
-to a plugin. Much easier to install and maintain. Requires that you
-have the Plugin Architecture installed.
+Plugin for Cacti - the Threshold Module (by Aurelio DeSimone)
+converted to a plugin. Much easier to install and maintain. Requires
+that you have the Plugin Architecture installed.
 
 %description -l pl.UTF-8
 Wtyczka do Cacti - moduł Threshold (który napisał Aurelio DeSimone)
@@ -37,7 +37,7 @@ monitorowanych parametrów.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{webcactipluginroot}
-cp -aRf * $RPM_BUILD_ROOT%{webcactipluginroot}
+cp -a * $RPM_BUILD_ROOT%{webcactipluginroot}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
