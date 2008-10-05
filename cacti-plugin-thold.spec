@@ -1,4 +1,4 @@
-%define		namesrc	thold
+%define		plugin	thold
 %include	/usr/lib/rpm/macros.perl
 Summary:	Plugin for Cacti - Thold
 Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
@@ -7,7 +7,7 @@ Version:	0.3.9
 Release:	1
 License:	GPL v2.1
 Group:		Applications/WWW
-Source0:	http://mirror.cactiusers.org/downloads/plugins/%{namesrc}-%{version}.zip
+Source0:	http://mirror.cactiusers.org/downloads/plugins/%{plugin}-%{version}.zip
 # Source0-md5:	72de5b79cff6e6794439704188400d5e
 URL:		http://www.cactiusers.org/
 BuildRequires:	rpm-perlprov
@@ -16,7 +16,8 @@ Requires:	cacti-plugin-settings
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		webcactipluginroot /usr/share/cacti/plugins/%{namesrc}
+%define		cactidir		/usr/share/cacti
+%define		plugindir		%{cactidir}/plugins/%{plugin}
 
 %description
 Plugin for Cacti - the Threshold Module (by Aurelio DeSimone)
@@ -36,8 +37,8 @@ monitorowanych parametrów.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{webcactipluginroot}
-cp -a * $RPM_BUILD_ROOT%{webcactipluginroot}
+install -d $RPM_BUILD_ROOT%{plugindir}
+cp -a . $RPM_BUILD_ROOT%{plugindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -45,4 +46,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%{webcactipluginroot}
+%{plugindir}
