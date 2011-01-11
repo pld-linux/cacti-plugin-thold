@@ -3,16 +3,15 @@
 Summary:	Plugin for Cacti - Thold
 Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
 Name:		cacti-plugin-thold
-Version:	0.4.2
+Version:	0.4.3
 Release:	1
 License:	LGPL v2.1
 Group:		Applications/WWW
-Source0:	http://mirror.cactiusers.org/downloads/plugins/%{plugin}-%{version}.zip
-# Source0-md5:	d97962d07da5d1c470f2669de5945ba4
+Source0:	http://mirror.cactiusers.org/downloads/plugins/%{plugin}-%{version}.tar.gz
+# Source0-md5:	b809b3f1566d7cf45c8d697db2d0bcbb
 URL:		http://www.cactiusers.org/
 BuildRequires:	rpm-perlprov
 BuildRequires:	rpmbuild(macros) >= 1.553
-BuildRequires:	unzip
 Requires:	cacti
 Requires:	cacti-plugin-settings
 BuildArch:	noarch
@@ -35,14 +34,14 @@ przekroczenia zadanych wartości lub niekorzystnych zmian w przebiegu
 monitorowanych parametrów.
 
 %prep
-%setup -qc
+%setup -q -n %{plugin}
 %undos LICENSE README thold.sql
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{plugindir}
 cp -a . $RPM_BUILD_ROOT%{plugindir}
-rm -f $RPM_BUILD_ROOT%{plugindir}/{README,LICENSE}
+%{__rm} $RPM_BUILD_ROOT%{plugindir}/{README,LICENSE}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
