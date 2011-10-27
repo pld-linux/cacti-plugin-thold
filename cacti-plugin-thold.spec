@@ -1,5 +1,5 @@
 %define		plugin	thold
-%define		php_min_version 5.0.0
+%define		php_min_version 5.1.1
 %include	/usr/lib/rpm/macros.php
 Summary:	Plugin for Cacti - Thold
 Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
@@ -16,6 +16,9 @@ Requires:	cacti
 Requires:	cacti(pia) >= 2.9
 Requires:	cacti-plugin-settings >= 0.71
 Requires:	php-common >= 4:%{php_min_version}
+Requires:	php-date
+Requires:	php-gd
+Requires:	php-pcre
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
