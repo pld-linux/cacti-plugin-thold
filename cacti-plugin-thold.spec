@@ -1,19 +1,21 @@
 %define		plugin	thold
-%include	/usr/lib/rpm/macros.perl
+%define		php_min_version 5.0.0
+%include	/usr/lib/rpm/macros.php
 Summary:	Plugin for Cacti - Thold
 Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
-Name:		cacti-plugin-thold
-Version:	0.4.3
+Name:		cacti-plugin-%{plugin}
+Version:	0.4.8
 Release:	1
 License:	LGPL v2.1
 Group:		Applications/WWW
-Source0:	http://mirror.cactiusers.org/downloads/plugins/%{plugin}-%{version}.tar.gz
-# Source0-md5:	b809b3f1566d7cf45c8d697db2d0bcbb
-URL:		http://www.cactiusers.org/
-BuildRequires:	rpm-perlprov
-BuildRequires:	rpmbuild(macros) >= 1.553
+Source0:	http://docs.cacti.net/_media/plugin:thold-v%{version}-3.tgz
+# Source0-md5:	20180edb16d0d3b6777b8df12679c94a
+URL:		http://docs.cacti.net/plugin:thold
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	cacti
-Requires:	cacti-plugin-settings
+Requires:	cacti(pia) >= 2.9
+Requires:	cacti-plugin-settings >= 0.71
+Requires:	php-common >= 4:%{php_min_version}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -21,9 +23,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		plugindir		%{cactidir}/plugins/%{plugin}
 
 %description
-Plugin for Cacti - the Threshold Module (by Aurelio DeSimone)
-converted to a plugin. Much easier to install and maintain. Requires
-that you have the Plugin Architecture installed.
+This plugin is for the alerting of data found within any graph within
+Cacti.
+
+Thold is Cacti's premier Alerting modules that integrates seamlessly
+with Cacti's Graphing engine.
 
 %description -l pl.UTF-8
 Wtyczka do Cacti - moduł Threshold (który napisał Aurelio DeSimone)
@@ -34,14 +38,15 @@ przekroczenia zadanych wartości lub niekorzystnych zmian w przebiegu
 monitorowanych parametrów.
 
 %prep
-%setup -q -n %{plugin}
-%undos LICENSE README thold.sql
+%setup -qc
+mv %{plugin}/{LICENSE,README} .
+
+%{__rm} thold/includes/.settings.php.swp
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{plugindir}
-cp -a . $RPM_BUILD_ROOT%{plugindir}
-%{__rm} $RPM_BUILD_ROOT%{plugindir}/{README,LICENSE}
+cp -a %{plugin}/* $RPM_BUILD_ROOT%{plugindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
