@@ -4,12 +4,12 @@
 Summary:	Plugin for Cacti - Thold
 Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
 Name:		cacti-plugin-%{plugin}
-Version:	0.4.8
-Release:	6
+Version:	0.4.9
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://docs.cacti.net/_media/plugin:thold-v%{version}-3.tgz
-# Source0-md5:	20180edb16d0d3b6777b8df12679c94a
+# Source0-md5:	18fa28a60cafa0d9821fb5d9a8cf7823
 URL:		http://docs.cacti.net/plugin:thold
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	cacti
