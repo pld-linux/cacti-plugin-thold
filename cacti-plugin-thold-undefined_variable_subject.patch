@@ -17,12 +17,4 @@ diff -dur cacti-plugin-thold-0.4.9.orig/thold/thold_functions.php cacti-plugin-t
  
  				if ($logset == 1) {
  					logger($item['name'], $breach_up, ($breach_up ? $item['thold_hi'] : $item['thold_low']), $currentval, $item['bl_fail_trigger'], $item['bl_fail_count'], $url);
-@@ -2032,7 +2035,7 @@
- 		$syslog_facility = LOG_DAEMON;
- 	}
- 
--	openlog('CactiTholdLog', LOG_PID | LOG_PERROR, $syslog_facility);
-+	openlog('CactiTholdLog', LOG_PID, $syslog_facility);
- 
- 	if (strval($breach_up) == 'ok') {
- 		syslog($syslog_level, $desc . ' restored to normal with ' . $currentval . ' at trigger ' . $trigger . ' out of ' . $triggerct . " - ". $urlbreach);
+
