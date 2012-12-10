@@ -10,6 +10,7 @@ License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://docs.cacti.net/_media/plugin:thold-v%{version}-3.tgz
 # Source0-md5:	18fa28a60cafa0d9821fb5d9a8cf7823
+Patch0:		%{name}-undefined_variable_subject.patch
 URL:		http://docs.cacti.net/plugin:thold
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	cacti
@@ -45,6 +46,8 @@ monitorowanych parametrów.
 mv %{plugin}/{LICENSE,README} .
 
 %{__rm} thold/includes/.settings.php.swp
+
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
