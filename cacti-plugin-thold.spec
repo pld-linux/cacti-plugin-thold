@@ -4,12 +4,12 @@
 Summary:	Plugin for Cacti - Thold
 Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
 Name:		cacti-plugin-%{plugin}
-Version:	0.4.9
+Version:	0.5.0
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://docs.cacti.net/_media/plugin:thold-v%{version}-3.tgz
-# Source0-md5:	18fa28a60cafa0d9821fb5d9a8cf7823
+Source0:	http://docs.cacti.net/_media/plugin:thold-v0.5.0.tgz
+# Source0-md5:	c2a0f8072dd57c59f9c3608c2d6922cf
 Patch0:		%{name}-undefined_variable_subject.patch
 Patch1:		%{name}-division_by_zero.patch
 URL:		http://docs.cacti.net/plugin:thold
@@ -46,7 +46,8 @@ monitorowanych parametrów.
 %setup -qc
 mv %{plugin}/{LICENSE,README} .
 
-%{__rm} thold/includes/.settings.php.swp
+# undos the source
+find '(' -name '*.php' -o -name '*.inc' ')' -print0 | xargs -0 %{__sed} -i -e 's,\r$,,'
 
 %patch0 -p1
 %patch1 -p1
