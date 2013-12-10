@@ -20,7 +20,7 @@ Requires:	cacti-plugin-settings >= 0.71
 Requires:	php(core) >= %{php_min_version}
 Requires:	php(gd)
 Requires:	php(pcre)
-Requires:	php-date
+Requires:	php(date)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
