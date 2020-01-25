@@ -1,6 +1,5 @@
 %define		plugin	thold
 %define		php_min_version 5.1.1
-%include	/usr/lib/rpm/macros.php
 Summary:	Plugin for Cacti - Thold
 Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
 Name:		cacti-plugin-%{plugin}
