@@ -4,7 +4,7 @@ Summary:	Plugin for Cacti - Thold
 Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
 Name:		cacti-plugin-%{plugin}
 Version:	0.5.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://docs.cacti.net/_media/plugin:thold-v0.5.0.tgz
