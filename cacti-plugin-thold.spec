@@ -3,18 +3,16 @@
 Summary:	Plugin for Cacti - Thold
 Summary(pl.UTF-8):	Wtyczka do Cacti - Thold
 Name:		cacti-plugin-%{plugin}
-Version:	0.5.0
-Release:	2
+Version:	1.8.2
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://docs.cacti.net/_media/plugin:thold-v0.5.0.tgz
-# Source0-md5:	c2a0f8072dd57c59f9c3608c2d6922cf
-Patch0:		%{name}-undefined_variable_subject.patch
-Patch1:		%{name}-division_by_zero.patch
-URL:		http://docs.cacti.net/plugin:thold
+Source0:	https://github.com/Cacti/plugin_thold/archive/refs/tags/v%{version}.tar.gz?/plugin_thold-%{version}.tar.gz
+# Source0-md5:	013ce9d41c9b21c0c04fb175698ecce0
+URL:		https://github.com/Cacti/plugin_thold
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	cacti
-Requires:	cacti(pia) >= 2.9
+Requires:	cacti(pia) >= 3.1
 Requires:	cacti-plugin-settings >= 0.71
 Requires:	php(core) >= %{php_min_version}
 Requires:	php(gd)
@@ -42,24 +40,18 @@ przekroczenia zadanych wartości lub niekorzystnych zmian w przebiegu
 monitorowanych parametrów.
 
 %prep
-%setup -qc
-mv %{plugin}/{LICENSE,README} .
-
-# undos the source
-find '(' -name '*.php' -o -name '*.inc' ')' -print0 | xargs -0 %{__sed} -i -e 's,\r$,,'
-
-%patch -P0 -p1
-%patch -P1 -p1
+%setup -q -n plugin_thold-%{version}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{plugindir}
-cp -a %{plugin}/* $RPM_BUILD_ROOT%{plugindir}
+cp -a . $RPM_BUILD_ROOT%{plugindir}
+rm $RPM_BUILD_ROOT%{plugindir}/LICENSE $RPM_BUILD_ROOT%{plugindir}/README.md
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
+%doc README.md LICENSE
 %{plugindir}
